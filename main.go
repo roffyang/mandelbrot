@@ -24,7 +24,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/campoy/mandelbrot/mandelbrot"
+	//"github.com/campoy/mandelbrot/mandelbrot"
+	"me/mandel/mandelbrot"
+
+	"github.com/pkg/profile"
 )
 
 var (
@@ -36,6 +39,8 @@ var (
 )
 
 func main() {
+	//defer profile.Start(profile.CPUProfile, profile.ProfilePath(".")).Stop()
+	defer profile.Start(profile.TraceProfile, profile.ProfilePath(".")).Stop()
 	flag.Parse()
 
 	// open a new file
